@@ -73,8 +73,36 @@ function moviesAverageByCategory(array,category) {
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
 
+function hoursToMinutes(array) {
+
+  let minMoviesArray=array.map(movie=>{
+    let obj={}
+    obj.title=movie.title
+    obj.year=movie.year
+    obj.duration=movie.duration
+    return obj
+  }) 
+  // let minMoviesArray={...array}    <--- Cannot use this instead all of the top????
+
+  minMoviesArray.forEach(movie=>{
+    let time=movie.duration
+    let arrayTime=time.split("h")  //it gives an array which the first element should be the hours
+    let hours=parseInt(arrayTime[0])
+    let minutes=0
+    if(arrayTime[1]!=""){
+        let stringMinutes=arrayTime[1]
+        let minutesArray=stringMinutes.split("min")
+        minutes=parseInt(minutesArray[0])
+    }
+    let min=hours*60+minutes
+    movie.duration=min
+  })
+
+
+
+
+  return minMoviesArray
 }
 
 // Exercise 8: Get the best film of a year
