@@ -108,11 +108,21 @@ function hoursToMinutes(array) {
   return minMoviesArray
 }
 
-// Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
-  
-}
+//Exercise 8: Get the best film of a year
 
+function bestFilmOfYear(array,year) {
+  let movieYearArray=[]
+  array.forEach(movie=>{
+    if(movie.year===year) movieYearArray.push(movie)
+  })
+
+  let bestFilm=movieYearArray.reduce((acu,element)=>{
+    if(acu.score>element.score) return acu
+    if(acu.score<=element.score) return element
+    },movieYearArray[0])
+  
+    return [bestFilm]
+}
 
 
 // The following is required to make unit tests work.
