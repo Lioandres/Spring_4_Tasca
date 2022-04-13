@@ -80,7 +80,10 @@ function hoursToMinutes(array) {
     let obj={}
     obj.title=movie.title
     obj.year=movie.year
+    obj.director=movie.director
     obj.duration=movie.duration
+    obj.genre=movie.genre
+    obj.score=movie.score
     return obj
   }) 
   // let minMoviesArray={...array}    <--- Cannot use this instead all of the top????
